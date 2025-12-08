@@ -300,9 +300,25 @@ obile Navigation - Same as Homepage */
     align-items: flex-start;
 }
 
-/* Product Header - Hidden in desktop */
+/* Product Header - Visible by default */
 .product-header {
-    display: none;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* Hide title in desktop view only (above 1024px) */
+@media (min-width: 1025px) {
+    .product-header {
+        display: none !important;
+    }
+    
+    .product-title {
+        display: none !important;
+    }
+    
+    .product-subtitle {
+        display: none !important;
+    }
 }
 
 /* Product Images */
