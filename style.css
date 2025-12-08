@@ -1534,6 +1534,7 @@ footer.footer::before {
     }
 
     /* 4. Button - Fourth (closer to description) */
+    .hero-text > a,
     .hero-text .cta-button {
         order: 4 !important;
         align-self: center;
@@ -1680,6 +1681,7 @@ footer.footer::before {
     }
 
     /* 4. Button */
+    .hero-text > a,
     .hero-text .cta-button {
         order: 4;
         align-self: center;
@@ -1868,20 +1870,9 @@ footer.footer::before {
         order: 1;
     }
 
+    /* Order: Title → Image → Text → Button */
     .hero-text h1 {
         order: 1;
-    }
-
-    .hero-image {
-        order: 2;
-    }
-
-    .hero-text p,
-    .hero-text .cta-button {
-        order: 3;
-    }
-
-    .hero-text h1 {
         font-size: 1.6em;
         color: #AF6A4C;
         text-align: center;
@@ -1895,16 +1886,23 @@ footer.footer::before {
         background-image: none !important;
     }
 
+    .hero-image {
+        order: 2;
+        height: 250px;
+        max-width: 300px;
+    }
+
     .hero-text p {
+        order: 3;
         font-size: 0.9em;
         line-height: 1.5;
         margin-bottom: 20px;
     }
 
-    .hero-image {
-        order: 1;
-        height: 250px;
-        max-width: 300px;
+    .hero-text > a,
+    .hero-text .cta-button {
+        order: 4;
+        align-self: center;
     }
 
     .hero-image img {
