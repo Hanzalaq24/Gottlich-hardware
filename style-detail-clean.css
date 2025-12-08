@@ -295,14 +295,23 @@ obile Navigation - Same as Homepage */
     width: 100%;
     overflow-x: hidden;
     padding: 0 40px;
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 40px 60px;
+    align-items: start;
+}
+
+/* Product Header - Spans both columns at top */
+.product-header {
+    grid-column: 1 / -1;
+    order: -1;
 }
 
 /* Product Images */
 .product-images {
-    flex: 1;
+    grid-column: 1;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -333,16 +342,18 @@ obile Navigation - Same as Homepage */
     display: block;
 }
 
-/* Pr
-oduct Info */
+/* Product Info */
 .product-info {
-    flex: 1;
+    grid-column: 2;
+    grid-row: 2;
     background: white;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-info::before {
@@ -561,12 +572,16 @@ oduct Info */
 /* Specifications Table */
 .specifications {
     margin-bottom: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Specifications inside product-images (left side) */
 .product-images .specifications {
     margin-top: 20px;
     margin-bottom: 0;
+    flex-grow: 0;
 }
 
 .spec-table {
@@ -653,6 +668,7 @@ oduct Info */
 .product-actions {
     display: flex;
     gap: 15px;
+    margin-top: auto;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 30px;
