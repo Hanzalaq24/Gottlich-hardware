@@ -10,6 +10,13 @@
 body {
     background-color: #fff;
     line-height: 1.6;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+html {
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 /* Header Styles - EXACT SAME AS HOMEPAGE */
@@ -273,6 +280,8 @@ obile Navigation - Same as Homepage */
 .product-page {
     background: #fff;
     min-height: 100vh;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 .product-detail-section {
@@ -283,6 +292,8 @@ obile Navigation - Same as Homepage */
 .product-container {
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
     padding: 0 40px;
     display: flex;
     gap: 60px;
@@ -354,6 +365,9 @@ oduct Info */
 .product-subtitle {
     color: #8B543C;
     font-size: 0.9em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -1261,13 +1275,17 @@ Mobile Responsiveness */
     
     /* H1 - Product Title */
     h1.product-title {
-        font-size: 1.8em;
+        font-size: 1.4em;
         color: #333;
         font-weight: 700;
         margin-bottom: 10px;
         text-align: left;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
         line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        hyphens: auto;
         text-transform: none;
         text-shadow: none;
         background: linear-gradient(45deg, #2C2C2C, #AF6A4C, #D4A574, #AF6A4C, #2C2C2C);
@@ -1411,10 +1429,10 @@ Mobile Responsiveness */
 @media (max-width: 480px) {
     /* H1 - Product Title */
     h1.product-title {
-        font-size: 1.6em;
+        font-size: 1.3em;
         color: #333;
-        line-height: 1.3;
-        letter-spacing: 0.3px;
+        line-height: 1.2;
+        letter-spacing: 0.2px;
         font-weight: 700;
         text-transform: none;
         text-shadow: none;
@@ -1424,6 +1442,10 @@ Mobile Responsiveness */
         -webkit-text-fill-color: transparent;
         background-clip: text;
         animation: gradientShift 4s ease-in-out infinite;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        hyphens: auto;
     }
     
     .product-subtitle {
