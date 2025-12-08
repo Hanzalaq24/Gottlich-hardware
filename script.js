@@ -706,66 +706,16 @@ function initHeroSlider() {
     });
 }
 
-// Auto-scroll for Popular and Latest Products on Mobile
+// Auto-scroll for Popular and Latest Products on Mobile - DISABLED
+// Removed slider functionality - now using vertical scrollable layout
+/*
 function initMobileProductScroll() {
-    // Only run on mobile devices
-    if (window.innerWidth <= 768) {
-        const popularGrid = document.querySelector('.popular-grid');
-        const latestGrid = document.querySelector('.latest-grid');
-
-        function autoScroll(container) {
-            if (!container) return;
-
-            let currentIndex = 0;
-            const items = container.querySelectorAll('.popular-item, .latest-item');
-            const totalItems = items.length;
-            const scrollSpeed = 4000; // 4 seconds per item (slower)
-            let isUserScrolling = false;
-
-            const scrollInterval = setInterval(() => {
-                // Check if user is near this section (within viewport)
-                const rect = container.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-                if (isVisible && !isUserScrolling) {
-                    currentIndex++;
-
-                    // Reset to beginning if reached end
-                    if (currentIndex >= totalItems) {
-                        currentIndex = 0;
-                    }
-
-                    // Scroll to next item (full width)
-                    const scrollPosition = currentIndex * container.clientWidth;
-                    container.scrollTo({
-                        left: scrollPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, scrollSpeed);
-
-            // Pause auto-scroll when user manually scrolls
-            container.addEventListener('touchstart', () => {
-                isUserScrolling = true;
-            });
-
-            let scrollTimeout;
-            container.addEventListener('scroll', () => {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    isUserScrolling = false;
-                }, 2000);
-            });
-        }
-
-        // Initialize auto-scroll for both sections
-        if (popularGrid) autoScroll(popularGrid);
-        if (latestGrid) autoScroll(latestGrid);
-    }
+    // Disabled - no longer using horizontal slider
 }
+*/
 
-// Initialize mobile product scroll
-initMobileProductScroll();
+// Mobile product scroll disabled - using vertical layout instead
+// initMobileProductScroll();
 
 // Re-initialize on window resize
 window.addEventListener('resize', () => {
