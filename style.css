@@ -1600,11 +1600,13 @@ footer.footer::before {
     .popular-grid,
     .latest-grid {
         display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-        overflow-x: visible;
-        overflow-y: visible;
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
         flex-wrap: nowrap;
         overflow-x: auto;
     }
@@ -1824,28 +1826,28 @@ footer.footer::before {
     .popular-grid,
     .latest-grid {
         display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        flex-direction: row;
+        gap: 0;
+        padding: 0 20px;
         flex-wrap: nowrap;
-        overflow-x: visible;
-        overflow-y: visible;
-        scroll-snap-type: none;
-        scroll-behavior: auto;
-        max-height: none;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
     }
 
     .popular-item,
     .latest-item {
-        flex: 0 0 auto;
+        flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
-        scroll-snap-align: none;
+        scroll-snap-align: center;
     }
 
     .popular-item img,
     .latest-item img {
-        height: 200px;
+        height: 250px;
         width: 100%;
         object-fit: contain;
     }
