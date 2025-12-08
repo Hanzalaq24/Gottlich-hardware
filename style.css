@@ -1512,20 +1512,25 @@ footer.footer::before {
     /* 2. Product Image - Second */
     .hero-image {
         order: 2 !important;
-        height: 320px;
-        width: 100%;
-        max-width: 100%;
+        height: 300px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 300px !important;
         margin: 0 auto 20px auto;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
     
     .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
+        width: 100% !important;
+        height: 300px !important;
+        max-height: 300px !important;
+        min-height: 300px !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        display: block;
     }
 
     /* 3. Product Description - Third */
@@ -1556,13 +1561,6 @@ footer.footer::before {
         max-width: 600px;
         margin: 0 auto;
         display: contents !important;
-    }
-
-    .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
     }
 
     .nav-btn {
@@ -1681,16 +1679,24 @@ footer.footer::before {
     .hero-image {
         order: 2;
         margin-bottom: 20px;
-        height: 300px;
-        width: 100%;
-        max-width: 100%;
+        height: 280px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 280px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
     
     .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
+        width: 100% !important;
+        height: 280px !important;
+        max-height: 280px !important;
+        min-height: 280px !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        display: block;
     }
 
     /* 3. Product Description */
@@ -1906,16 +1912,24 @@ footer.footer::before {
 
     .hero-image {
         order: 2;
-        height: 280px;
-        width: 100%;
-        max-width: 100%;
+        height: 250px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 250px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
     
     .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
+        width: 100% !important;
+        height: 250px !important;
+        max-height: 250px !important;
+        min-height: 250px !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        display: block;
     }
 
     .hero-text p {
