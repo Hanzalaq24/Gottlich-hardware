@@ -1172,16 +1172,32 @@ Mobile Responsiveness */
 }
 
 @media (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .product-page {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
     .product-detail-section {
         padding: 0;
+        margin: 0;
         background: #f5f5f5;
+        width: 100%;
     }
     .product-container {
         display: flex;
         flex-direction: column;
         gap: 0;
         padding: 0;
+        margin: 0;
         max-width: 100%;
+        width: 100%;
     }
     
     /* Flatten all children to be direct flex items */
@@ -1202,12 +1218,14 @@ Mobile Responsiveness */
     /* 1. Title at top */
     .product-header {
         order: 1;
-        padding: 12px 10px;
+        padding: 12px 15px;
         background: white;
         text-align: left;
-        margin-bottom: 0;
+        margin: 0;
         border-bottom: 1px solid #e7e7e7;
         display: block !important;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* 2. Image */
@@ -1215,6 +1233,15 @@ Mobile Responsiveness */
         order: 2;
         background: white;
         display: block !important;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .main-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
     
     /* 2. Dots below image */
@@ -1223,6 +1250,10 @@ Mobile Responsiveness */
         background: white;
         border-bottom: 8px solid #f5f5f5;
         display: flex !important;
+        padding: 10px 15px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* 3. Product Overview */
@@ -1232,6 +1263,9 @@ Mobile Responsiveness */
         background: white;
         border-bottom: 8px solid #f5f5f5;
         display: block !important;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* 4. Product Specifications */
@@ -1241,6 +1275,9 @@ Mobile Responsiveness */
         background: white;
         border-bottom: 8px solid #f5f5f5;
         display: block !important;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* 5. Premium Features (2x2 grid) */
@@ -1250,6 +1287,9 @@ Mobile Responsiveness */
         background: white;
         border-bottom: 8px solid #f5f5f5;
         display: block !important;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* 6. Technical Specifications */
@@ -1259,6 +1299,9 @@ Mobile Responsiveness */
         background: white;
         border-bottom: 8px solid #f5f5f5;
         display: block !important;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     /* 7. Action Buttons */
@@ -1351,6 +1394,9 @@ Mobile Responsiveness */
     .spec-table {
         width: 100%;
         min-width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        box-sizing: border-box;
     }
     
     /* Fit to screen - Technical Specifications */
@@ -1422,6 +1468,10 @@ Mobile Responsiveness */
     .features-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
         gap: 12px;
     }
     
