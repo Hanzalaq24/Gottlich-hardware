@@ -296,24 +296,18 @@ obile Navigation - Same as Homepage */
     overflow-x: hidden;
     padding: 0 40px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px 60px;
+    gap: 60px;
     align-items: flex-start;
 }
 
-/* Product Header - Full width at top */
+/* Product Header - Hidden in desktop */
 .product-header {
-    order: -1;
-    width: 100%;
-    flex: 0 0 100%;
-    margin-bottom: 0;
+    display: none;
 }
 
 /* Product Images */
 .product-images {
-    order: 1;
     flex: 1;
-    min-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -346,9 +340,7 @@ obile Navigation - Same as Homepage */
 
 /* Product Info */
 .product-info {
-    order: 2;
     flex: 1;
-    min-width: 400px;
     background: white;
     padding: 40px;
     border-radius: 20px;
