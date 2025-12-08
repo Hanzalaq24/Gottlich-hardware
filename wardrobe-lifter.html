@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WARDROBE LIFTER - Gottlich Premium Kitchen Hardware</title>
     <meta name="description" content="Gottlich WARDROBE LIFTER - Hydraulic wardrobe lift system for easy access to high storage areas.">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style-detail-clean.css?v=1765198373" as="style">
+    <link rel="preload" href="Gottlich Logo.svg" as="image">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://www.instagram.com">
+    
     <link rel="stylesheet" href="style-detail-clean.css?v=1765198373">
     <link rel="icon" type="image/svg+xml" href="Gottlich Logo.svg">
 </head>
@@ -44,7 +53,7 @@
                 <div class="product-images">
                     <div class="thumbnail-list">
                         <div class="thumbnail active" data-image="Product-photos(webp)/only photos-37.webp">
-                            <img src="Product-photos(webp)/only photos-37.webp" alt="WARDROBE LIFTER" width="150" height="150">
+                            <img loading="lazy" src="Product-photos(webp)/only photos-37.webp" alt="WARDROBE LIFTER" width="150" height="150">
                         </div>
                     </div>
                     <div class="main-image-container">
@@ -172,11 +181,11 @@
             <div class="qr-social">
                 <div class="qr-codes">
                     <div class="qr-item">
-                        <img src="Whatsapp QR.jpeg" alt="WhatsApp QR Code - Contact Us" class="qr-img"
+                        <img loading="lazy" src="Whatsapp QR.jpeg" alt="WhatsApp QR Code - Contact Us" class="qr-img"
                             onerror="this.src='https://via.placeholder.com/120x120/ffffff/000000?text=WhatsApp+QR'">
                     </div>
                     <div class="qr-item">
-                        <img src="gottlich location-qr-code.webp" alt="Location QR Code - Find Us" class="qr-img">
+                        <img loading="lazy" src="gottlich location-qr-code.webp" alt="Location QR Code - Find Us" class="qr-img">
                     </div>
                 </div>
                 
@@ -193,12 +202,12 @@
                 </div>
                 
                 <div class="social-row">
-                    <a href="https://www.facebook.com/GOTTLICHHARDWARE"><img src="facebook.png" alt="Facebook"></a>
+                    <a href="https://www.facebook.com/GOTTLICHHARDWARE"><img loading="lazy" src="facebook.png" alt="Facebook"></a>
                     <a href="https://www.instagram.com/gottlich_hardware_" target="_blank" rel="noopener"><img
                             src="instagram.png" alt="Instagram"></a>
-                    <a href="mailto:gujaratsunmicasurat@gmail.com"><img src="mail.png" alt="Mail"></a>
+                    <a href="mailto:gujaratsunmicasurat@gmail.com"><img loading="lazy" src="mail.png" alt="Mail"></a>
                     <a href="https://www.google.com/maps/dir//110-111,+Udhana+-+Magdalla+Rd,+Ambika+Industrial+Society+1,+Gandhi+Kutir,+Surat,+Gujarat+395017/@21.1642426,72.7368015,12z/data=!4m8!4m7!1m0!1m5!1s0x3be04f55d26791e3:0x310a74d719723411!2m2!1d72.8192032!2d21.1642626?entry=ttu&g_ep=EgoyMDI1MDczMC.0IKXMDSoASAFQAw%3D%3D"
-                        target="_blank" rel="noopener"><img src="location.png" alt="Location"></a>
+                        target="_blank" rel="noopener"><img loading="lazy" src="location.png" alt="Location"></a>
                 </div>
             </div>
 
@@ -206,7 +215,7 @@
             <div class="address-map-section">
                 <h3>Our Global Presence</h3>
                 <div class="map-3d-container">
-                    <video class="address-video" autoplay muted loop playsinline>
+                    <video class="address-video" autoplay muted loop playsinline preload="metadata" loading="lazy">
                         <source src="address_video (online-video-cutter.com).mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -221,7 +230,7 @@
         </div>
     </footer>
 
-    <script src="products-detail-clean.js"></script>
-    <script src="product-whatsapp.js"></script>
+    <script src="products-detail-clean.js" defer></script>
+    <script src="product-whatsapp.js" defer></script>
 </body>
 </html>
