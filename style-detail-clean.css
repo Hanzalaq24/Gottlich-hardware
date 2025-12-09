@@ -96,19 +96,8 @@ before {
     width: 80%;
 }
 
-/* GRADIENT TEXT - Only for Product Title */
-.product-title.gradient-text {
-    color: #333;
-    background: linear-gradient(45deg, #2C2C2C, #AF6A4C, #D4A574, #AF6A4C, #2C2C2C);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease-in-out infinite;
-}
-
 /* All other gradient-text should be solid dark brown */
-.gradient-text {
+.gradient-text:not(.product-title) {
     color: #8B4513 !important;
     background: none !important;
     -webkit-background-clip: unset !important;
@@ -126,52 +115,10 @@ before {
     }
 }
 
-/* Neon glow only for product title */
-.product-title.neon-glow {
-    text-shadow: 0 0 5px rgba(175, 106, 76, 0.5), 
-                 0 0 10px rgba(175, 106, 76, 0.5), 
-                 0 0 15px rgba(175, 106, 76, 0.5), 
-                 0 0 20px rgba(175, 106, 76, 0.5);
-    animation: neonFlicker 2s ease-in-out infinite alternate;
-}
-
 /* Remove neon glow from other elements */
-.neon-glow {
+.neon-glow:not(.product-title) {
     text-shadow: none !important;
     animation: none !important;
-}
-
-@keyframes neonFlicker {
-    0%, 100% {
-        text-shadow: 0 0 5px rgba(175, 106, 76, 0.5), 
-                     0 0 10px rgba(175, 106, 76, 0.5), 
-                     0 0 15px rgba(175, 106, 76, 0.5), 
-                     0 0 20px rgba(175, 106, 76, 0.5);
-    }
-    50% {
-        text-shadow: 0 0 2px rgba(175, 106, 76, 0.3), 
-                     0 0 5px rgba(175, 106, 76, 0.3), 
-                     0 0 8px rgba(175, 106, 76, 0.3), 
-                     0 0 12px rgba(175, 106, 76, 0.3);
-    }
-}
-
-/* Product Title - EXACT SAME AS HOMEPAGE HERO H1 */
-.product-title {
-    font-size: 5.5em;
-    color: #333;
-    margin-bottom: 30px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    line-height: 1.1;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15), 0 0 30px rgba(175, 106, 76, 0.3);
-    background: linear-gradient(45deg, #2C2C2C, #AF6A4C, #D4A574, #AF6A4C, #2C2C2C);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease-in-out infinite;
 }
 
 /* M
@@ -306,18 +253,132 @@ obile Navigation - Same as Homepage */
     text-align: left;
 }
 
-/* Hide title in desktop view only (above 1024px) */
-@media (min-width: 1025px) {
-    .product-header {
+/* Desktop layout - clean and structured (above 1024px) */
+@media (min-width: 1024px) {
+    .product-container {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    /* Title at TOP - full width across page */
+    .product-container > .product-header {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0 !important;
+        order: -1;
+    }
+    
+    .product-container > .product-header .product-title {
+        font-size: 3.2em !important;
+        margin-bottom: 5px;
+        line-height: 1.1;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #333;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15), 0 0 30px rgba(175, 106, 76, 0.3) !important;
+        background: linear-gradient(45deg, #2C2C2C, #AF6A4C, #D4A574, #AF6A4C, #2C2C2C) !important;
+        background-size: 300% 300% !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        animation: gradientShift 4s ease-in-out infinite !important;
+    }
+    
+    .product-container > .product-header .product-subtitle {
+        font-size: 1.2em;
+        line-height: 1.1;
+        font-weight: 500;
+        margin-bottom: -10px;
+    }
+    
+    .product-container > .product-header .product-rating {
+        display: none;
+    }
+    
+    /* Left column - vertical layout */
+    .product-images {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-top: -40px;
+        padding-top: 0;
+    }
+    
+    .product-info {
+        margin-top: -40px;
+    }
+    
+    /* Image below title - full width */
+    .product-images .main-image-container {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .product-images .thumbnail-list {
+        display: none;
+    }
+    
+    /* Product Specifications at bottom */
+    .product-images .specifications {
+        width: 100%;
+        margin-top: auto;
+    }
+    
+    /* Hide duplicate header in right column */
+    .product-info .product-header {
         display: none !important;
     }
     
-    .product-title {
-        display: none !important;
+    /* Right column layout */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
     }
     
-    .product-subtitle {
-        display: none !important;
+    .product-info .product-description {
+        margin-bottom: 30px;
+    }
+    
+    .product-info .features-section {
+        margin-bottom: 30px;
+    }
+    
+    /* Make feature boxes smaller in desktop */
+    .product-info .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .product-info .feature-item {
+        padding: 15px;
+    }
+    
+    .product-info .feature-icon {
+        font-size: 2em;
+        margin-bottom: 8px;
+    }
+    
+    .product-info .feature-item h4 {
+        font-size: 0.95em;
+        margin: 8px 0;
+    }
+    
+    .product-info .feature-item p {
+        font-size: 0.85em;
+    }
+    
+    /* Align tech-specs with left side table - add space above */
+    .product-info .tech-specs {
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+    
+    .product-info .product-actions {
+        margin-top: 30px;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 }
 
@@ -361,23 +422,14 @@ obile Navigation - Same as Homepage */
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border: 2px solid #AF6A4C;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
-.product-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(45deg, #AF6A4C, #D4956B, #AF6A4C);
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease-in-out infinite;
-}
+
 
 .product-header {
     margin-bottom: 40px;
