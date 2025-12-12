@@ -1,0 +1,16 @@
+{
+  "name": "Gottlich Premium Kitchen Hardware",
+  "short_name": "Gottlich",
+  "description": "Premium kitchen hardware solutions with 32+ years experience",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#AF6A4C",
+  "icons": [
+    {
+      "src": "Gottlich Logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

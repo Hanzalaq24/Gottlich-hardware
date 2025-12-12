@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://gottlichhardware.com/Product-photos(webp)/only%20photos-1.webp" />
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.css?v=1765555382" as="style">
+    <link rel="preload" href="style.css?v=1765555460" as="style">
     <link rel="preload" href="Gottlich Logo.svg" as="image">
     
     <!-- DNS Prefetch -->
@@ -25,7 +25,19 @@
     <meta property="og:url" content="https://gottlichhardware.com/products.html" />
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://gottlichhardware.com/products.html" />
-    <link rel="stylesheet" href="style.css?v=1765555382">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f8f9fa;overflow-x:hidden;line-height:1.6}
+        .header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;box-shadow:0 2px 20px rgba(0,0,0,0.1)}
+        .logo-nav{display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;padding:0 20px}
+        .logo{height:50px;width:auto}
+        img{max-width:100%;height:auto}
+    </style>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="style.css?v=1765555480" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css?v=1765555480"></noscript>
     <link rel="icon" type="image/svg+xml" href="Gottlich Logo.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
