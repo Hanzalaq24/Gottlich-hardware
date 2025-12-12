@@ -166,7 +166,7 @@ header.header {
     right: -100%;
     width: 300px;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 248, 248, 0.95));
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     z-index: 1000;
     padding: 80px 30px 30px;
@@ -271,58 +271,30 @@ header.header {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: translateX(100%) scale(0.8);
+    transition: all 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .slide.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0) scale(1);
+    z-index: 2;
 }
 
 .slide.prev {
-    transform: translateX(-100%) scale(0.8);
     opacity: 0;
+    visibility: hidden;
+    z-index: 1;
 }
 
 .slide.next {
-    transform: translateX(100%) scale(0.8);
     opacity: 0;
+    visibility: hidden;
+    z-index: 1;
 }
 
-/* Professional slide transition effects */
-
-.slide.entering {
-    animation: slideEnter 0.4s ease-out forwards;
-}
-
-.slide.exiting {
-    animation: slideExit 0.4s ease-in forwards;
-}
-
-@keyframes slideEnter {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideExit {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
+/* Smooth fade transition for slides */
+.slide-transition {
+    transition: opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 @keyframes rotate {
@@ -639,20 +611,24 @@ header.header {
 /* Slide Animation Effects */
 
 .slide .hero-text {
-    transform: translateX(0);
+    transform: translateY(20px);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 1s cubic-bezier(0.4, 0.0, 0.2, 1) 0.2s;
 }
 
 .slide .hero-image {
-    transform: translateX(0);
+    transform: translateY(20px);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 1s cubic-bezier(0.4, 0.0, 0.2, 1) 0.1s;
 }
 
-.slide.active .hero-text,
+.slide.active .hero-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .slide.active .hero-image {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
 }
 
@@ -701,7 +677,7 @@ header.header {
 /* Products Section */
 
 .products-section {
-    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+    background: #ffffff;
     padding: 80px 0;
     margin-bottom: 80px;
     position: relative;
@@ -850,7 +826,7 @@ header.header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background: rgba(248, 248, 248, 0.5);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(175, 106, 76, 0.1);
@@ -929,7 +905,7 @@ header.header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background: rgba(248, 248, 248, 0.5);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(175, 106, 76, 0.1);
@@ -2537,7 +2513,7 @@ PRODUCT PAGE STYLES ===== */
 /* Product Detail Section */
 .product-detail-section {
     padding: 40px 0 80px 0;
-    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    background: #ffffff;
 }
 
 .product-container {
@@ -2817,7 +2793,7 @@ PRODUCT PAGE STYLES ===== */
 }
 
 .spec-table {
-    background: #f9f9f9;
+    background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -2912,7 +2888,7 @@ PRODUCT PAGE STYLES ===== */
 }
 
 .action-btn.tertiary {
-    background: #f5f5f5;
+    background: #ffffff;
     color: #666;
     border: 2px solid #ddd;
 }
@@ -3136,7 +3112,7 @@ PRODUCT PAGE STYLES ===== */
     .features-section {
         order: 2;
         padding: 25px 20px;
-        background: #f8f9fa;
+        background: #ffffff;
         margin: 10px 0;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -3300,7 +3276,7 @@ PRODUCT PAGE STYLES ===== */
     .related-products {
         order: 6;
         padding: 40px 20px;
-        background: #f9f9f9;
+        background: #ffffff;
     }
 
     .related-products h2 {
@@ -3795,7 +3771,7 @@ RODUCTS SHOWCASE LAYOUT ===== */
 
 /* Hero Section */
 .products-hero {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #ffffff;
     padding: 80px 0 60px 0;
     text-align: center;
 }

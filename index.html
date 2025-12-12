@@ -8,7 +8,7 @@
     <meta name="description" content="Gottlich - Premium kitchen hardware with 32+ years experience. Telescopic channels, auto hinges, pull-outs, magic corners & more for modular kitchens.">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.css?v=1765555500" as="style">
+    <link rel="preload" href="style.css?v=1765555540" as="style">
     <link rel="preload" href="Gottlich Logo.svg" as="image">
     
     <!-- DNS Prefetch for external resources -->
@@ -17,7 +17,7 @@
     <link rel="dns-prefetch" href="https://www.instagram.com">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=1765555500">
+    <link rel="stylesheet" href="style.css?v=1765555540">
     <link rel="icon" type="image/svg+xml" href="Gottlich Logo.svg">
 </head>
 
@@ -461,45 +461,84 @@
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.indicator');
             let currentSlide = 0;
+            let isTransitioning = false;
             const totalSlides = slides.length;
 
-            function showSlide(index) {
-                // Hide all slides
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
+            function showSlide(index, direction = 'next') {
+                if (isTransitioning || index === currentSlide) return;
                 
-                // Show current slide
-                if (slides[index]) {
-                    slides[index].classList.add('active');
+                isTransitioning = true;
+                const oldSlide = slides[currentSlide];
+                const newSlide = slides[index];
+                
+                // Start transition
+                if (oldSlide) {
+                    oldSlide.style.opacity = '0';
+                    oldSlide.style.visibility = 'hidden';
                 }
-                if (dots[index]) {
-                    dots[index].classList.add('active');
-                }
+                
+                // Small delay for smooth transition
+                setTimeout(() => {
+                    // Hide all slides first
+                    slides.forEach(slide => {
+                        slide.classList.remove('active');
+                        slide.style.opacity = '0';
+                        slide.style.visibility = 'hidden';
+                    });
+                    
+                    // Show new slide
+                    if (newSlide) {
+                        newSlide.classList.add('active');
+                        newSlide.style.opacity = '1';
+                        newSlide.style.visibility = 'visible';
+                    }
+                    
+                    // Update dots
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                    
+                    currentSlide = index;
+                    
+                    // Allow next transition after animation completes
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 1200);
+                }, 100);
             }
 
             function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
+                const nextIndex = (currentSlide + 1) % totalSlides;
+                showSlide(nextIndex, 'next');
             }
 
             function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                showSlide(currentSlide);
+                const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(prevIndex, 'prev');
             }
 
             // Initialize first slide
             if (slides.length > 0) {
-                showSlide(0);
+                // Set first slide as active immediately
+                slides[0].classList.add('active');
+                slides[0].style.opacity = '1';
+                slides[0].style.visibility = 'visible';
                 
-                // Auto-advance slides every 5 seconds
-                setInterval(nextSlide, 5000);
+                if (dots[0]) {
+                    dots[0].classList.add('active');
+                }
+                
+                // Auto-advance slides every 6 seconds (slower)
+                setInterval(nextSlide, 6000);
             }
 
             // Dot navigation
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
-                    currentSlide = index;
-                    showSlide(currentSlide);
+                    if (!isTransitioning && index !== currentSlide) {
+                        showSlide(index);
+                    }
                 });
             });
 
@@ -507,8 +546,22 @@
             const prevBtn = document.querySelector('.prev-btn');
             const nextBtn = document.querySelector('.next-btn');
             
-            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!isTransitioning) {
+                        prevSlide();
+                    }
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!isTransitioning) {
+                        nextSlide();
+                    }
+                });
+            }
 
             // Mobile Navigation
             const hamburger = document.getElementById('hamburger');
