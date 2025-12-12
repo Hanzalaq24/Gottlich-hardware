@@ -1046,14 +1046,16 @@ footer.footer::before {
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     position: relative;
+    text-align: center;
 }
 
 .opening-hours h3::after {
     content: '';
     position: absolute;
     bottom: -8px;
-    left: 0;
-    width: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
     height: 3px;
     background: linear-gradient(45deg, #D4A574, #fff);
     border-radius: 2px;
@@ -1065,6 +1067,7 @@ footer.footer::before {
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 400;
+    text-align: center;
 }
 
 .opening-hours p strong {
