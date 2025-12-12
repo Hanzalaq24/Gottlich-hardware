@@ -1,21 +1,8 @@
 const CACHE_NAME = 'gottlich-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/products.html',
   '/style.css',
-  '/products.js',
-  '/products-detail-clean.js',
-  '/product-whatsapp.js',
-  '/Gottlich Logo.svg',
-  '/Product-photos(webp)/only photos-1.webp',
-  '/Product-photos(webp)/only photos-6.webp',
-  '/Product-photos(webp)/only photos-10.webp',
-  '/Product-photos(webp)/only photos-12.webp',
-  '/Product-photos(webp)/only photos-14.webp',
-  '/Product-photos(webp)/only photos-16.webp',
-  '/Product-photos(webp)/only photos-21.webp',
-  '/Product-photos(webp)/only photos-28.webp'
+  '/Gottlich Logo.svg'
 ];
 
 self.addEventListener('install', event => {
@@ -26,14 +13,10 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
+  if (event.request.destination === 'image' || event.request.url.includes('.css')) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => response || fetch(event.request))
+    );
+  }
 });

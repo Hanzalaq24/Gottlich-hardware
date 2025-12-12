@@ -5,6 +5,16 @@
     font-family: Arial, sans-serif;
 }
 
+/* Performance optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-slider {
+    contain: layout;
+}
+
 body {
     background-color: #fff;
     line-height: 1.6;
