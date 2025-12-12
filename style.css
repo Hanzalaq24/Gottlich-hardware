@@ -776,6 +776,12 @@ header.header {
     opacity: 1;
 }
 
+.product-item a {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
 .product-item img {
     width: 100%;
     aspect-ratio: 1 / 1;
